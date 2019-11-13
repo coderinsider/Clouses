@@ -10,7 +10,7 @@ function updateClicks(menu) {
       const report = [button, clicks];
       console.log(...report);
    }
-   reportClicks();
+   return reportClicks;
 }
 const activities = {
    teamIn: ['basketball','hockey','volleyball'],
@@ -94,7 +94,7 @@ document.querySelector('.forecast-button').addEventListener('click', function(e)
    e.preventDefault();
    const location = document.querySelector('#location').value;
    document.querySelector('#location').value = '';
-   fetch(url + location + '&appid=' + apiKey).then(function(response) {
+   fetch(url + location.toLowerCase() + '&appid=' + apiKey).then(function(response) {
       return(response.json());
    }).then(function(response) {
       updateUISuccess(response);
