@@ -1,1 +1,7 @@
 npm install http-server -g
+if you want to http-server. Please check in example
+http-server -p 3000
+
+run-server
+run-server -port 9900
+run-server -open myPage.html
