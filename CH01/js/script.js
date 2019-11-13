@@ -1,8 +1,11 @@
 'use strict';
+let clicks = {};
 function updateClicks(menu) {
-   let clicks = {};
+   alert('Work there');
+   
    let button = menu.id;
    clicks[button] = clicks[button] + 1 || 1;
+   console.log(clicks);
 }
 const activities = {
    teamIn: ['basketball','hockey','volleyball'],
