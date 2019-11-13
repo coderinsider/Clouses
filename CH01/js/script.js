@@ -1,17 +1,31 @@
 'use strict';
-let clicks = {};
-function updateClicks(menu) {
-   console.info('Work there');
-   
-   let button = menu.id;
-   clicks[button] = clicks[button] + 1 || 1;
+
+// *function updateClicks(menu) {
+// *   console.info('Work there');
+// *   let clicks = {};
+// *   let button = menu.id;
+// *   clicks[button] = clicks[button] + 1 || 1;
    // console.log(clicks);
-   function reportClicks() {
-      const report = [button, clicks];
-      console.log(...report);
+// *   function reportClicks(item) {
+// *      const report = [button, clicks];
+// *      console.log(...report);
+// *   }
+// *   return reportClicks;
+// *}
+// * const  report = updateClicks();
+
+function updateClicks() {
+   let clicks = {};
+   function reportClicks(item) {
+      clicks[item] = clicks[item] + 1 || 1;
+      console.log(item, clicks);
    }
    return reportClicks;
 }
+
+const reportActivities = updateClicks();
+const reportProducts = updateClicks();
+
 const activities = {
    teamIn: ['basketball','hockey','volleyball'],
    teamOutWarm: ['softball/baseball','football/soccer','American football','rowing','tennis','volleyball','ultimate frisbee','rugby'],
@@ -106,7 +120,14 @@ document.querySelector('.forecast-button').addEventListener('click', function(e)
    // update list of sports when user selects a different category (solo/team/all)
 document.querySelectorAll('.options div').forEach(function(el) {
    el.addEventListener('click', function(event) {
+      alert(0);
       updateActivityList(event);
-      updateClicks(event.target);
+      reportActivities(event.target.id);
+   }, false);
+});
+
+document.querySelectorAll('.product-image').forEach(function(el) {
+   el.addEventListener('mouseenter', function(event) {
+      reportProducts(event.target.nextElementSibling.textContent);
    }, false);
 });
